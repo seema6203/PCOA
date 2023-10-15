@@ -1,0 +1,16 @@
+#NEXUS
+
+BEGIN TAXA;
+	DIMENSIONS ntax=4;
+	TAXLABELS Goa Maharashtra Kerala Assam ;
+END;
+
+BEGIN DISTANCES; 
+	FORMAT TRIANGLE = LOWER;
+	Matrix 
+	Goa   0.0000
+	Maharashtra 177.4993   0.0000
+	Kerala 118.7603 113.4460   0.0000
+	Assam 151.6839 196.8197 154.9387   0.0000
+	;
+END; 
