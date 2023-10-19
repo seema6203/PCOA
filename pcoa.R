@@ -5,14 +5,15 @@ setwd(working_dir)
 library(ggplot2)
 library(poppr)
 nou<-read.genalex(file,genclone = FALSE)
-D<-dist(nou)
-pop(nou)
+D<-nei.dist(nou)
+# pop(nou)
+colr<-c(rep("firebrick",48),rep("#008b8b",48),rep("#7b68ee",32))
 pco<-dudi.pco(D,scannf = FALSE,nf=3)
-population<-c(rep("Cluster2",2),rep("Cluster1",39),rep("Cluster2",22),rep("Cluster3",29))
-population[6]<-"Cluster2"
-population[21]<-"Cluster2"
+population<-c(rep("Cluster1",48),rep("Cluster2",48),rep("Cluster3",32))
+#population[6]<-"Cluster2"
+#population[21]<-"Cluster2"
 p<-ggFunctions::s.class(pco$li,fac=population,xax=1,yax=2,drawEllipse=FALSE,drawSegment = FALSE,cellipse = 1)
-p
+
 p<-p+theme(
    legend.background = element_rect(fill="transparent"), # get rid of legend bg
          legend.box.background = element_rect(fill = "transparent",color=NA),
